@@ -1,3 +1,5 @@
 {
-    "welcome": "Merhaba"
+    "welcome": "Merhaba",
+    "login": "Giriş",
+    "createAccount": "Hesap oluşturun"
 }

@@ -26,15 +26,15 @@ dev_dependencies:
 
 flutter_native_splash:
   #color: "#323f5c""
-  background_image: "assets/images/shopping_cart_splash.png"
-  image: "assets/icon/shopping_cart.png"
+  background_image: "assets/images/monkey_splash_screen.png"
+  #image: "assets/icon/shopping_cart.png"
   #image: "assets/images/logo.png"
   android_12:
 
 flutter_icons:
   android: "launcher_icon"
   #  ios: true
-  image_path: "assets/icon/shopping_cart.png"
+  image_path: "assets/icon/monke_icon.png"
 
 flutter:
   uses-material-design: true
