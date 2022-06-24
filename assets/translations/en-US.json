@@ -1,5 +1,14 @@
 {
     "welcome": "Welcome",
     "login": "Login",
-    "createAccount": "Create an Account"
+    "createAccount": "Create an Account",
+    "addYourDetailsToLogin": "Add your details to Login",
+    "yourEmail": "Your Email",
+    "password": "Password",
+    "forgotYourPassword": "Forgot your password?",
+    "orLoginWith": "or Login With",
+    "loginFacebook": "Login with Facebook",
+    "loginGoogle": "Login with Google",
+    "dontHaveAnAccount": "Don't have an Account?",
+    "signUp": "Sign Up"
 }

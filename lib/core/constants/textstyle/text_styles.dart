@@ -8,4 +8,18 @@ class TextStylesConstants extends TextStyle {
         fontStyle: FontStyle.normal,
         fontSize: size,
       );
+
+  static const TextStyle textFieldTextStyle = TextStyle(
+      color: Color(0xffb6b7b7),
+      fontWeight: FontWeight.w400,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: 14.0);
+
+  static const TextStyle sideTextStyle = TextStyle(
+      color: Color(0xff7c7d7e),
+      fontWeight: FontWeight.w500,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: 14.0);
 }

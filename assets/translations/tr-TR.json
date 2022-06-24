@@ -1,5 +1,14 @@
 {
     "welcome": "Merhaba",
     "login": "Giriş",
-    "createAccount": "Hesap oluşturun"
+    "createAccount": "Hesap oluştur",
+    "addYourDetailsToLogin": "Login için bilgilerinizi girin",
+    "yourEmail": "Email",
+    "password": "şifre",
+    "forgotYourPassword": "Şifrenizi mi unuttunuz?",
+    "orLoginWith": "Bununla giriş yapın",
+    "loginFacebook": "Facebook ile giriş yap",
+    "loginGoogle": "Google ile giriş yap",
+    "dontHaveAnAccount": "Henüz bir hesabınız yok mu ?",
+    "signUp": "Hemen oluştur"
 }
