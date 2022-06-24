@@ -5,10 +5,10 @@ import 'package:shopping/core/extension/context_extension.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {Key? key, required this.controller, required this.focusNode, required this.keyboardType, required this.hintText})
+      {Key? key, required this.controller, this.focusNode, required this.keyboardType, required this.hintText})
       : super(key: key);
   final TextEditingController controller;
-  final FocusNode focusNode;
+  final FocusNode? focusNode;
   final TextInputType keyboardType;
   final String hintText;
 
@@ -17,7 +17,7 @@ class CustomTextField extends StatelessWidget {
     return Center(
       child: Container(
         width: context.dynamicWidth(0.9),
-        height: context.dynamicHeight(0.07),
+        height: context.dynamicHeight(0.069),
         decoration: const BoxDecoration(
           color: ColorConstants.textFieldColor,
           borderRadius: BorderRadius.all(
@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: TextField(
+            child: TextFormField(
               textInputAction: TextInputAction.next,
               cursorColor: ColorConstants.brightOrange,
               cursorRadius: const Radius.circular(45),

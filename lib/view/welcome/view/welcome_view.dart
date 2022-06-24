@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
+import 'package:shopping/core/constants/padding/padding_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/core/extension/string_extension.dart';
@@ -29,15 +30,37 @@ class WelcomeView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const LoginButton(),
               Padding(
-                padding: context.paddingMediumVertical,
-                child: const AccountButton(),
+                padding: PaddingConstants.onlyBottomLarge + const EdgeInsets.symmetric(horizontal: 36),
+                child: const Content(),
+              ),
+              const Padding(
+                padding: PaddingConstants.onlyBottomSmall,
+                child: LoginButton(),
+              ),
+              const Padding(
+                padding: PaddingConstants.onlyBottomMedium,
+                child: AccountButton(),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class Content extends StatelessWidget {
+  const Content({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      LocaleKeys.discoverTheBestFoods.tr(),
+      style: TextStylesConstants.sideTextStyle,
+      textAlign: TextAlign.center,
     );
   }
 }
@@ -51,7 +74,9 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomElevatedButton(
       onPressed: () {
-        context.pushRoute(const LoginRoute());
+        context.pushRoute(
+          const LoginRoute(),
+        );
       },
       primary: ColorConstants.brightOrange,
       child: Text(

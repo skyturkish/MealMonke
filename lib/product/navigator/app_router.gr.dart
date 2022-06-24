@@ -28,6 +28,10 @@ class _$AppRouter extends RootStackRouter {
     RegisterRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const RegisterView());
+    },
+    ResetPasswordRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ResetPasswordView());
     }
   };
 
@@ -37,7 +41,8 @@ class _$AppRouter extends RootStackRouter {
             path: '/', redirectTo: 'welcome', fullMatch: true),
         RouteConfig(WelcomeRoute.name, path: 'welcome'),
         RouteConfig(LoginRoute.name, path: 'login'),
-        RouteConfig(RegisterRoute.name, path: 'register')
+        RouteConfig(RegisterRoute.name, path: 'register'),
+        RouteConfig(ResetPasswordRoute.name, path: 'resetPassword')
       ];
 }
 
@@ -63,4 +68,13 @@ class RegisterRoute extends PageRouteInfo<void> {
   const RegisterRoute() : super(RegisterRoute.name, path: 'register');
 
   static const String name = 'RegisterRoute';
+}
+
+/// generated route for
+/// [ResetPasswordView]
+class ResetPasswordRoute extends PageRouteInfo<void> {
+  const ResetPasswordRoute()
+      : super(ResetPasswordRoute.name, path: 'resetPassword');
+
+  static const String name = 'ResetPasswordRoute';
 }
