@@ -37,6 +37,15 @@ class _LoginViewState extends State<LoginView> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _emailFocusNode.dispose();
+    _passwordController.dispose();
+    _passwordFocusNode.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(

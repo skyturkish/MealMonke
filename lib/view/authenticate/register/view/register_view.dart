@@ -10,6 +10,8 @@ import 'package:shopping/product/widget/textfield/custom_textfield.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
+import 'package:shopping/view/authenticate/register/service/lRegisterService.dart';
+import 'package:shopping/view/authenticate/register/service/register_service.dart';
 part "register_view_part.dart";
 
 class RegisterView extends StatefulWidget {
@@ -20,7 +22,7 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  final _formKey = GlobalKey<FormState>();
+  final _signUpFormKey = GlobalKey<FormState>();
 
   //Controllers
   late final TextEditingController _nameController;
@@ -32,6 +34,8 @@ class _RegisterViewState extends State<RegisterView> {
   // FocusNodes
   late final FocusNode _nameFocusNode;
 
+  late final IRegisterService _registerService;
+
   @override
   void initState() {
     super.initState();
@@ -42,6 +46,27 @@ class _RegisterViewState extends State<RegisterView> {
     _passwordController = TextEditingController();
     _passwordConfirmController = TextEditingController();
     _nameFocusNode = FocusNode();
+    _registerService = RegisterService();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _nameController.dispose();
+    _nameFocusNode.dispose();
+    _mobileNoController.dispose();
+    _addressController.dispose();
+    _passwordController.dispose();
+    _passwordConfirmController.dispose();
+  }
+
+  Future<void> signUpUser() async {
+    await _registerService.signUpUser(
+      context: context,
+      name: _nameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
   }
 
   @override
@@ -54,7 +79,7 @@ class _RegisterViewState extends State<RegisterView> {
           elevation: 0,
         ),
         body: Form(
-          key: _formKey,
+          key: _signUpFormKey,
           child: Column(
             children: [
               Text(
@@ -89,9 +114,20 @@ class _RegisterViewState extends State<RegisterView> {
                 padding: PaddingConstants.onlyTopMedium,
                 child: ConfirmPasswordTextField(passwordConfirmController: _passwordConfirmController),
               ),
-              const Padding(
+              Padding(
                 padding: PaddingConstants.onlyTopMedium,
-                child: SignUpButton(),
+                child: CustomElevatedButton(
+                  onPressed: () {
+                    if (_signUpFormKey.currentState!.validate()) {
+                      signUpUser();
+                    }
+                  },
+                  primary: ColorConstants.brightOrange,
+                  child: Text(
+                    LocaleKeys.signUp.tr(),
+                    style: TextStylesConstants.metroPolis(color: ColorConstants.whiteTextField, size: 16),
+                  ),
+                ),
               ),
               const Spacer(),
               const Padding(

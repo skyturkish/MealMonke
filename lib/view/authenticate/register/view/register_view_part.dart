@@ -132,24 +132,6 @@ class ConfirmPasswordTextField extends StatelessWidget {
   }
 }
 
-class SignUpButton extends StatelessWidget {
-  const SignUpButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomElevatedButton(
-      onPressed: () {},
-      primary: ColorConstants.brightOrange,
-      child: Text(
-        LocaleKeys.signUp.tr(),
-        style: TextStylesConstants.metroPolis(color: ColorConstants.whiteTextField, size: 16),
-      ),
-    );
-  }
-}
-
 class BottomText extends StatelessWidget {
   const BottomText({
     Key? key,

@@ -26,6 +26,12 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
