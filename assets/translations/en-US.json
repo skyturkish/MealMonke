@@ -20,5 +20,11 @@
     "discoverTheBestFoods": "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep",
     "resetPassword": "Reset Password",
     "resetPasswordContent": "Please enter your email to recevi a link to create a new password via email",
-    "send": "Send"
+    "send": "Send",
+    "findFood": "Find Food You Love",
+    "fastDelivery": "Fast Delivery",
+    "fastFood": "Fast food delivery to your home, office wherever you are",
+    "next": "Next",
+    "liveTracking": "Live Tracking",
+    "realTime": "Real time tracking of your food on the app once you placed the order"
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PaddingConstants {
+class PaddingConstants  {  
   static const EdgeInsets onlyTopSmall = EdgeInsets.only(top: 12);
   static const EdgeInsets onlyTopMedium = EdgeInsets.only(top: 24);
   static const EdgeInsets onlyTopLarge = EdgeInsets.only(top: 36);

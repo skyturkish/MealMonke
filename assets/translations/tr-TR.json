@@ -20,5 +20,11 @@
     "discoverTheBestFoods": "1000'den fazla restorandan en iyi yiyeceklerini keşfedin ve kapınıza hızlı teslimat yapın",
     "resetPassword": "Şifreyı sıfırla",
     "resetPasswordContent": "E-posta yoluyla yeni bir şifre oluşturmak lütfen e-postanızı girin",
-    "send": "Gönder"
+    "send": "Gönder",
+    "findFood": "Sevdiğin yiyecekleri bul",
+    "fastDelivery": "Hızlı teslimat",
+    "fastFood": "MealMonke sen her neredeysen sana getirebilir",
+    "next": "İleri",
+    "liveTracking": "Canlı izle",
+    "realTime": "Sipariş verdikten sonra yemeğinizi uygulamada gerçek zamanlı olarak takip edin"
 }

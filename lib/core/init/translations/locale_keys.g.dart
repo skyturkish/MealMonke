@@ -23,4 +23,10 @@ abstract class LocaleKeys {
   static const resetPassword = "resetPassword";
   static const resetPasswordContent = "resetPasswordContent";
   static const send = "send";
+  static const findFood = "findFood";
+  static const fastFood = "fastFood";
+  static const fastDelivery = "fastDelivery";
+  static const next = "next";
+  static const liveTracking = "liveTracking";
+  static const realTime = "realTime";
 }

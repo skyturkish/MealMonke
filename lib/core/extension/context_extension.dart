@@ -13,10 +13,12 @@ extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
 
-  double get lowValue => height * 0.01;
-  double get normalValue => height * 0.02;
-  double get mediumValue => height * 0.04;
-  double get highValue => height * 0.1;
+  static const double multiplicand = 0.01423;
+
+  double get smallValue => height * multiplicand * 1;
+  double get mediumValue => height * multiplicand * 2;
+  double get largeValue => height * multiplicand * 3;
+  double get largeXXValue => height * multiplicand * 5;
 }
 
 extension ThemeExtension on BuildContext {
@@ -25,23 +27,30 @@ extension ThemeExtension on BuildContext {
   ColorScheme get colors => theme.colorScheme;
 }
 
-extension PaddingExtensionAll on BuildContext {
-  EdgeInsets get paddingLow => EdgeInsets.all(lowValue);
-  EdgeInsets get paddingNormal => EdgeInsets.all(normalValue);
-  EdgeInsets get paddingMedium => EdgeInsets.all(mediumValue);
-  EdgeInsets get paddingHigh => EdgeInsets.all(highValue);
+extension PaddingExtensionOnlyTop on BuildContext {
+  EdgeInsets get paddingOnlyTopSmall => EdgeInsets.only(top: smallValue);
+  EdgeInsets get paddingOnlyTopMedium => EdgeInsets.only(top: mediumValue);
+  EdgeInsets get paddingOnlyTopLarge => EdgeInsets.only(top: largeValue);
+  EdgeInsets get paddingOnlyTopLargeXX => EdgeInsets.only(top: largeXXValue);
+}
+
+extension PaddingExtensionOnlyBottom on BuildContext {
+  EdgeInsets get paddingOnlyBottomSmall => EdgeInsets.only(bottom: smallValue);
+  EdgeInsets get paddingOnlyBottomMedium => EdgeInsets.only(bottom: mediumValue);
+  EdgeInsets get paddingOnlyBottomLarge => EdgeInsets.only(bottom: largeValue);
+  EdgeInsets get paddingOnlyBottomLargeXX => EdgeInsets.only(bottom: largeXXValue);
 }
 
 extension PaddingExtensionSymetric on BuildContext {
-  EdgeInsets get paddingLowVertical => EdgeInsets.symmetric(vertical: lowValue);
-  EdgeInsets get paddingNormalVertical => EdgeInsets.symmetric(vertical: normalValue);
-  EdgeInsets get paddingMediumVertical => EdgeInsets.symmetric(vertical: mediumValue);
-  EdgeInsets get paddingHighVertical => EdgeInsets.symmetric(vertical: highValue);
-
-  EdgeInsets get paddingLowHorizontal => EdgeInsets.symmetric(horizontal: lowValue);
-  EdgeInsets get paddingNormalHorizontal => EdgeInsets.symmetric(horizontal: normalValue);
+  EdgeInsets get paddingSmallHorizontal => EdgeInsets.symmetric(horizontal: smallValue);
   EdgeInsets get paddingMediumHorizontal => EdgeInsets.symmetric(horizontal: mediumValue);
-  EdgeInsets get paddingHighHorizontal => EdgeInsets.symmetric(horizontal: highValue);
+  EdgeInsets get paddingLargeHorizontal => EdgeInsets.symmetric(horizontal: largeValue);
+  EdgeInsets get paddingLargeXXHorizontal => EdgeInsets.symmetric(horizontal: largeXXValue);
+
+  EdgeInsets get paddingSmallVertical => EdgeInsets.symmetric(vertical: smallValue);
+  EdgeInsets get paddingMediumVertical => EdgeInsets.symmetric(vertical: mediumValue);
+  EdgeInsets get paddingLargeVertical => EdgeInsets.symmetric(vertical: largeValue);
+  EdgeInsets get paddingLargeXXVertical => EdgeInsets.symmetric(vertical: largeXXValue);
 }
 
 extension PageExtension on BuildContext {

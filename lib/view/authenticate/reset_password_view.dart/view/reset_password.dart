@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
-import 'package:shopping/core/constants/padding/padding_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
+import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
@@ -48,16 +48,16 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
               style: TextStylesConstants.titleTextStyle,
             ),
             Padding(
-              padding: PaddingConstants.onlyTopSmall + PaddingConstants.symmetricHorizontalMedium,
+              padding: context.paddingOnlyTopSmall + context.paddingMediumHorizontal,
               child: const Content(),
             ),
             Padding(
-              padding: PaddingConstants.onlyTopLargeXX,
+              padding: context.paddingOnlyTopLargeXX,
               child: EmailTextField(emailController: _emailController),
             ),
-            const Padding(
-              padding: PaddingConstants.onlyTopLarge,
-              child: SendButton(),
+            Padding(
+              padding: context.paddingOnlyTopLarge,
+              child: const SendButton(),
             ),
           ],
         ),

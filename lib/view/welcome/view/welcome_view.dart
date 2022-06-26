@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
-import 'package:shopping/core/constants/padding/padding_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/core/extension/string_extension.dart';
@@ -31,16 +30,16 @@ class WelcomeView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: PaddingConstants.onlyBottomLarge + const EdgeInsets.symmetric(horizontal: 36),
+                padding: context.paddingOnlyBottomLarge + context.paddingLargeHorizontal,
                 child: const Content(),
               ),
-              const Padding(
-                padding: PaddingConstants.onlyBottomSmall,
-                child: LoginButton(),
+              Padding(
+                padding: context.paddingOnlyBottomSmall,
+                child: const LoginButton(),
               ),
-              const Padding(
-                padding: PaddingConstants.onlyBottomMedium,
-                child: AccountButton(),
+              Padding(
+                padding: context.paddingOnlyBottomMedium,
+                child: const AccountButton(),
               ),
             ],
           ),

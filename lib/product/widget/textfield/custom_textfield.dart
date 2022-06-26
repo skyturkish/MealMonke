@@ -26,7 +26,7 @@ class CustomTextField extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: context.paddingMediumHorizontal,
             child: TextFormField(
               textInputAction: TextInputAction.next,
               cursorColor: ColorConstants.brightOrange,

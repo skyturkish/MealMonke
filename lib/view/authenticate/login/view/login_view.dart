@@ -3,8 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
-import 'package:shopping/core/constants/padding/padding_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
+import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
@@ -62,43 +62,43 @@ class _LoginViewState extends State<LoginView> {
                 LocaleKeys.login.tr(),
                 style: TextStylesConstants.titleTextStyle,
               ),
-              const Padding(
-                padding: PaddingConstants.onlyTopSmall,
-                child: InfoText(),
+              Padding(
+                padding: context.paddingOnlyTopSmall,
+                child: const InfoText(),
               ),
               Padding(
-                padding: PaddingConstants.onlyTopMedium,
+                padding: context.paddingOnlyTopMedium,
                 child: EmailTextField(emailController: _emailController, emailFocusNode: _emailFocusNode),
               ),
               Padding(
-                padding: PaddingConstants.onlyTopMedium,
+                padding: context.paddingOnlyTopMedium,
                 child:
                     PasswornTextField(passwordController: _passwordController, passwordFocusNode: _passwordFocusNode),
               ),
-              const Padding(
-                padding: PaddingConstants.onlyTopMedium,
-                child: LoginButton(),
-              ),
-              const Padding(
-                padding: PaddingConstants.onlyTopMedium,
-                child: ResetPasswordTextButton(),
-              ),
-              const Padding(
-                padding: PaddingConstants.onlyTopLarge,
-                child: LoginWithText(),
+              Padding(
+                padding: context.paddingOnlyTopMedium,
+                child: const LoginButton(),
               ),
               Padding(
-                padding: PaddingConstants.onlyTopMedium + PaddingConstants.symmetricHorizontalMedium,
+                padding: context.paddingOnlyTopMedium,
+                child: const ResetPasswordTextButton(),
+              ),
+              Padding(
+                padding: context.paddingOnlyTopLarge,
+                child: const LoginWithText(),
+              ),
+              Padding(
+                padding: context.paddingOnlyTopMedium + context.paddingMediumHorizontal,
                 child: const FacebookButton(),
               ),
               Padding(
-                padding: PaddingConstants.onlyTopMedium + PaddingConstants.symmetricHorizontalMedium,
+                padding: context.paddingOnlyTopMedium + context.paddingMediumHorizontal,
                 child: const GoogleButton(),
               ),
               const Spacer(),
-              const Padding(
-                padding: PaddingConstants.onlyBottomMedium,
-                child: BottomText(),
+              Padding(
+                padding: context.paddingOnlyBottomMedium,
+                child: const BottomText(),
               )
             ],
           ),

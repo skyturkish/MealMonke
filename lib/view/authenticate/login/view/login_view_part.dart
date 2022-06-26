@@ -68,7 +68,9 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        context.router.push(const OnBoardRoute());
+      },
       primary: ColorConstants.brightOrange,
       child: Text(
         LocaleKeys.login.tr(),

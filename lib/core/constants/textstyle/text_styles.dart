@@ -44,4 +44,11 @@ class TextStylesConstants extends TextStyle {
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: 14.0);
+
+  static const TextStyle buttomMediumTextStyleWhite = TextStyle(
+      color: Color(0xffffffff),
+      fontWeight: FontWeight.w600,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: 16.0);
 }
