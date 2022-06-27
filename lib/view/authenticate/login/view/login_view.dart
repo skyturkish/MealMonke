@@ -9,6 +9,8 @@ import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
+import 'package:shopping/view/authenticate/login/service/ILoginService.dart';
+import 'package:shopping/view/authenticate/login/service/login_service.dart';
 part 'login_view_part.dart';
 
 class LoginView extends StatefulWidget {
@@ -19,7 +21,8 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  final _formKey = GlobalKey<FormState>();
+  final _signInFormKey = GlobalKey<FormState>();
+  late final ILoginService _loginService;
 
   //Controllers
   late final TextEditingController _emailController;
@@ -34,6 +37,7 @@ class _LoginViewState extends State<LoginView> {
     _passwordFocusNode = FocusNode();
     _emailController = TextEditingController();
     _emailFocusNode = FocusNode();
+    _loginService = LoginService();
   }
 
   @override
@@ -43,6 +47,14 @@ class _LoginViewState extends State<LoginView> {
     _emailFocusNode.dispose();
     _passwordController.dispose();
     _passwordFocusNode.dispose();
+  }
+
+  void signInUser() {
+    _loginService.signInUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
   }
 
   @override
@@ -55,7 +67,7 @@ class _LoginViewState extends State<LoginView> {
           elevation: 0,
         ),
         body: Form(
-          key: _formKey,
+          key: _signInFormKey,
           child: Column(
             children: [
               Text(
@@ -77,7 +89,20 @@ class _LoginViewState extends State<LoginView> {
               ),
               Padding(
                 padding: context.paddingOnlyTopMedium,
-                child: const LoginButton(),
+                child: CustomElevatedButton(
+                  onPressed: () {
+                    if (_signInFormKey.currentState!.validate()) {
+                      FocusManager.instance.primaryFocus?.unfocus();
+
+                      signInUser();
+                    }
+                  },
+                  primary: ColorConstants.brightOrange,
+                  child: Text(
+                    LocaleKeys.login.tr(),
+                    style: TextStylesConstants.metroPolis(color: Colors.white, size: 16),
+                  ),
+                ),
               ),
               Padding(
                 padding: context.paddingOnlyTopMedium,

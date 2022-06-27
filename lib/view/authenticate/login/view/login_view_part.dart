@@ -60,26 +60,6 @@ class PasswornTextField extends StatelessWidget {
   }
 }
 
-class LoginButton extends StatelessWidget {
-  const LoginButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomElevatedButton(
-      onPressed: () {
-        context.router.push(const OnBoardRoute());
-      },
-      primary: ColorConstants.brightOrange,
-      child: Text(
-        LocaleKeys.login.tr(),
-        style: TextStylesConstants.metroPolis(color: Colors.white, size: 16),
-      ),
-    );
-  }
-}
-
 class ResetPasswordTextButton extends StatelessWidget {
   const ResetPasswordTextButton({
     Key? key,

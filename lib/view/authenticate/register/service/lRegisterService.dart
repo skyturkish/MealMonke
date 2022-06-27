@@ -8,4 +8,6 @@ abstract class IRegisterService {
       int mobileNo = 0,
       String address = ' ',
       required String password});
+
+  Future<void> getUserData(BuildContext context);
 }

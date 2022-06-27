@@ -115,7 +115,18 @@ class _RegisterViewState extends State<RegisterView> {
               ),
               Padding(
                 padding: context.paddingOnlyTopMedium,
-                child: const SignUpButton(),
+                child: CustomElevatedButton(
+                  onPressed: () {
+                    if (_signUpFormKey.currentState!.validate()) {
+                      signUpUser();
+                    }
+                  },
+                  primary: ColorConstants.brightOrange,
+                  child: Text(
+                    LocaleKeys.signUp.tr(),
+                    style: TextStylesConstants.metroPolis(color: ColorConstants.whiteTextField, size: 16),
+                  ),
+                ),
               ),
               const Spacer(),
               Padding(

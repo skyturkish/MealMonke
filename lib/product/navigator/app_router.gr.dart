@@ -36,6 +36,10 @@ class _$AppRouter extends RootStackRouter {
     OnBoardRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const OnBoardView());
+    },
+    HomeRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const HomeView());
     }
   };
 
@@ -47,7 +51,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(LoginRoute.name, path: 'login'),
         RouteConfig(RegisterRoute.name, path: 'register'),
         RouteConfig(ResetPasswordRoute.name, path: 'resetPassword'),
-        RouteConfig(OnBoardRoute.name, path: 'onBoard')
+        RouteConfig(OnBoardRoute.name, path: 'onBoard'),
+        RouteConfig(HomeRoute.name, path: 'home')
       ];
 }
 
@@ -90,4 +95,12 @@ class OnBoardRoute extends PageRouteInfo<void> {
   const OnBoardRoute() : super(OnBoardRoute.name, path: 'onBoard');
 
   static const String name = 'OnBoardRoute';
+}
+
+/// generated route for
+/// [HomeView]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute() : super(HomeRoute.name, path: 'home');
+
+  static const String name = 'HomeRoute';
 }
