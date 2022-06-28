@@ -13,7 +13,7 @@ extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
 
-  static const double multiplicand = 0.01423;
+  static const double multiplicand = 0.01323;
 
   double get smallValue => height * multiplicand * 1;
   double get mediumValue => height * multiplicand * 2;

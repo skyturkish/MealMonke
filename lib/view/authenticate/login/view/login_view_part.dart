@@ -7,10 +7,7 @@ class InfoText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      LocaleKeys.addYourDetailsToLogin.tr(),
-      style: TextStylesConstants.sideTextStyle,
-    );
+    return Text(LocaleKeys.addYourDetailsToLogin.tr(), style: TextStylesConstants.sideTextStyle(context: context));
   }
 }
 
@@ -73,10 +70,7 @@ class ResetPasswordTextButton extends StatelessWidget {
           const ResetPasswordRoute(),
         );
       },
-      child: Text(
-        LocaleKeys.forgotYourPassword.tr(),
-        style: TextStylesConstants.sideTextStyle,
-      ),
+      child: Text(LocaleKeys.forgotYourPassword.tr(), style: TextStylesConstants.sideTextStyle(context: context)),
     );
   }
 }
@@ -88,10 +82,7 @@ class LoginWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      LocaleKeys.orLoginWith.tr(),
-      style: TextStylesConstants.sideTextStyle,
-    );
+    return Text(LocaleKeys.orLoginWith.tr(), style: TextStylesConstants.sideTextStyle(context: context));
   }
 }
 
@@ -111,7 +102,7 @@ class FacebookButton extends StatelessWidget {
           const Icon(Icons.face),
           Text(
             LocaleKeys.loginFacebook.tr(),
-            style: TextStylesConstants.authButtonTextStyle,
+            style: TextStylesConstants.authButtonTextStyle(context: context),
           ),
           const SizedBox(),
         ],
@@ -136,7 +127,7 @@ class GoogleButton extends StatelessWidget {
           const Icon(Icons.g_mobiledata),
           Text(
             LocaleKeys.loginGoogle.tr(),
-            style: TextStylesConstants.authButtonTextStyle,
+            style: TextStylesConstants.authButtonTextStyle(context: context),
           ),
           const SizedBox(),
         ],
@@ -155,9 +146,9 @@ class BottomText extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          TextSpan(style: TextStylesConstants.sideTextStyle, text: LocaleKeys.dontHaveAnAccount.tr()),
+          TextSpan(style: TextStylesConstants.sideTextStyle(context: context), text: LocaleKeys.dontHaveAnAccount.tr()),
           TextSpan(
-            style: TextStylesConstants.buttonMediumTextStyle,
+            style: TextStylesConstants.buttonMediumTextStyle(context: context),
             text: LocaleKeys.signUp.tr(),
             recognizer: TapGestureRecognizer()
               ..onTap = () => context.router.push(

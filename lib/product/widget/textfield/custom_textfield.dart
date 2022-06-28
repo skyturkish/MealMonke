@@ -35,17 +35,16 @@ class CustomTextField extends StatelessWidget {
               focusNode: focusNode,
               keyboardType: keyboardType,
               decoration: InputDecoration(
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants.textFieldColor),
-                ),
-                enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: ColorConstants.textFieldColor,
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.textFieldColor),
                   ),
-                ),
-                hintText: hintText,
-                hintStyle: TextStylesConstants.textFieldTextStyle,
-              ),
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: ColorConstants.textFieldColor,
+                    ),
+                  ),
+                  hintText: hintText,
+                  hintStyle: TextStylesConstants.textFieldTextStyle(context: context)),
               validator: (val) {
                 if (val == null || val.isEmpty) {
                   return 'Enter your $hintText';

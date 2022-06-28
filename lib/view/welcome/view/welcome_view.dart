@@ -10,15 +10,13 @@ import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
 import 'package:shopping/providers/user_provider.dart';
-import 'package:shopping/view/home/home_view.dart';
+import 'package:shopping/view/home/home/view/home_view.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<UserProvider>(context, listen: false).user.token.isEmpty);
-    print('selamlar');
     return Provider.of<UserProvider>(context, listen: false).user.token.isNotEmpty
         ? const HomeView()
         : Scaffold(
@@ -65,7 +63,7 @@ class Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       LocaleKeys.discoverTheBestFoods.tr(),
-      style: TextStylesConstants.sideTextStyle,
+      style: TextStylesConstants.sideTextStyle(context: context),
       textAlign: TextAlign.center,
     );
   }
@@ -85,10 +83,7 @@ class LoginButton extends StatelessWidget {
         );
       },
       primary: ColorConstants.brightOrange,
-      child: Text(
-        LocaleKeys.login.tr(),
-        style: TextStylesConstants.metroPolis(color: Colors.white, size: 16),
-      ),
+      child: Text(LocaleKeys.login.tr(), style: TextStylesConstants.metroPolis(color: Colors.white, context: context)),
     );
   }
 }
@@ -108,14 +103,10 @@ class AccountButton extends StatelessWidget {
         border: Border.all(color: ColorConstants.brightOrange),
       ),
       child: CustomElevatedButton(
-        onPressed: () {
-          print(Provider.of<UserProvider>(context, listen: false).user.token.isEmpty);
-        },
+        onPressed: () {},
         primary: Colors.white,
-        child: Text(
-          LocaleKeys.createAccount.tr(),
-          style: TextStylesConstants.metroPolis(color: ColorConstants.brightOrange, size: 16),
-        ),
+        child: Text(LocaleKeys.createAccount.tr(),
+            style: TextStylesConstants.metroPolis(color: ColorConstants.brightOrange, context: context)),
       ),
     );
   }

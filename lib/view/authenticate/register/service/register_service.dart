@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -80,6 +82,6 @@ class RegisterService extends IRegisterService {
         final UserProvider userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userRes.body);
       }
-    } catch (e) {}
+    } catch (_) {}
   }
 }

@@ -70,10 +70,7 @@ class _LoginViewState extends State<LoginView> {
           key: _signInFormKey,
           child: Column(
             children: [
-              Text(
-                LocaleKeys.login.tr(),
-                style: TextStylesConstants.titleTextStyle,
-              ),
+              Text(LocaleKeys.login.tr(), style: TextStylesConstants.titleTextStyle(context: context)),
               Padding(
                 padding: context.paddingOnlyTopSmall,
                 child: const InfoText(),
@@ -98,10 +95,8 @@ class _LoginViewState extends State<LoginView> {
                     }
                   },
                   primary: ColorConstants.brightOrange,
-                  child: Text(
-                    LocaleKeys.login.tr(),
-                    style: TextStylesConstants.metroPolis(color: Colors.white, size: 16),
-                  ),
+                  child: Text(LocaleKeys.login.tr(),
+                      style: TextStylesConstants.metroPolis(color: Colors.white, context: context)),
                 ),
               ),
               Padding(

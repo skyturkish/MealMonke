@@ -142,9 +142,9 @@ class BottomText extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          TextSpan(style: TextStylesConstants.sideTextStyle, text: LocaleKeys.dontHaveAnAccount.tr()),
+          TextSpan(style: TextStylesConstants.sideTextStyle(context: context), text: LocaleKeys.dontHaveAnAccount.tr()),
           TextSpan(
-            style: TextStylesConstants.buttonMediumTextStyle,
+            style: TextStylesConstants.buttonMediumTextStyle(context: context),
             text: LocaleKeys.login.tr(),
             recognizer: TapGestureRecognizer()
               ..onTap = () => context.router.push(

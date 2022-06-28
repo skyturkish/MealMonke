@@ -83,7 +83,7 @@ class _RegisterViewState extends State<RegisterView> {
             children: [
               Text(
                 LocaleKeys.signUp.tr(),
-                style: TextStylesConstants.titleTextStyle,
+                style: TextStylesConstants.titleTextStyle(context: context),
               ),
               Padding(
                 padding: context.paddingOnlyTopSmall,
@@ -122,10 +122,8 @@ class _RegisterViewState extends State<RegisterView> {
                     }
                   },
                   primary: ColorConstants.brightOrange,
-                  child: Text(
-                    LocaleKeys.signUp.tr(),
-                    style: TextStylesConstants.metroPolis(color: ColorConstants.whiteTextField, size: 16),
-                  ),
+                  child: Text(LocaleKeys.signUp.tr(),
+                      style: TextStylesConstants.metroPolis(color: ColorConstants.whiteTextField, context: context)),
                 ),
               ),
               const Spacer(),

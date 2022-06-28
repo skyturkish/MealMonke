@@ -45,7 +45,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
           children: [
             Text(
               LocaleKeys.resetPassword.tr(),
-              style: TextStylesConstants.titleTextStyle,
+              style: TextStylesConstants.titleTextStyle(context: context),
             ),
             Padding(
               padding: context.paddingOnlyTopSmall + context.paddingMediumHorizontal,

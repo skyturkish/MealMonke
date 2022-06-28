@@ -29,6 +29,7 @@ dependencies:
   # Network
   http: ^0.13.4
   provider: ^6.0.3
+  badges: ^2.0.3
 
 dev_dependencies:
   auto_route_generator: ^4.0.0
