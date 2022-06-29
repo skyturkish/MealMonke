@@ -5,5 +5,5 @@ class ApplicationConstants {
   static const TRANSLATIONS_ASSET_PATH = 'assets/translations';
   static const CACHE_TOKEN_STRING_NAME = 'x-auth-token';
 
-  static const uri = "http://192.168.62.105:3000";
+  static const uri = "http://192.168.0.21:3000";
 }

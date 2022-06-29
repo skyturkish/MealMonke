@@ -13,7 +13,11 @@
 part of 'app_router.dart';
 
 class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+  _$AppRouter(
+      {GlobalKey<NavigatorState>? navigatorKey, required this.authGuard})
+      : super(navigatorKey);
+
+  final AuthGuard authGuard;
 
   @override
   final Map<String, PageFactory> pagesMap = {
@@ -47,7 +51,7 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig('/#redirect',
             path: '/', redirectTo: 'welcome', fullMatch: true),
-        RouteConfig(WelcomeRoute.name, path: 'welcome'),
+        RouteConfig(WelcomeRoute.name, path: 'welcome', guards: [authGuard]),
         RouteConfig(LoginRoute.name, path: 'login'),
         RouteConfig(RegisterRoute.name, path: 'register'),
         RouteConfig(ResetPasswordRoute.name, path: 'resetPassword'),

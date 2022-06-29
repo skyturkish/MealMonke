@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:shopping/product/navigator/guard/auth_guard.dart';
 import 'package:shopping/view/authenticate/login/view/login_view.dart';
 import 'package:shopping/view/authenticate/onboard/view/on_board_view.dart';
 import 'package:shopping/view/authenticate/register/view/register_view.dart';
@@ -12,7 +13,7 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'View,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: WelcomeView, path: 'welcome', initial: true),
+    AutoRoute(page: WelcomeView, path: 'welcome', guards: [AuthGuard], initial: true),
     AutoRoute(
       page: LoginView,
       path: 'login',
@@ -25,4 +26,6 @@ part 'app_router.gr.dart';
 )
 
 // extend the generated private router
-class AppRouter extends _$AppRouter {}
+class AppRouter extends _$AppRouter {
+  AppRouter({required super.authGuard});
+}

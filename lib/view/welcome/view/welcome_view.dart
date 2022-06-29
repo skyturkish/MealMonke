@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
@@ -9,48 +8,44 @@ import 'package:shopping/core/extension/string_extension.dart';
 import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
-import 'package:shopping/providers/user_provider.dart';
-import 'package:shopping/view/home/home/view/home_view.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Provider.of<UserProvider>(context, listen: false).user.token.isNotEmpty
-        ? const HomeView()
-        : Scaffold(
-            body: SafeArea(
-              child: Container(
-                // Böyle olunca alttakilerin kendini sıkıştırma sorunu gidiyor
-                height: context.dynamicHeight(1),
-                width: context.dynamicWidth(1),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("monkey_login_screen".toJPG),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: context.paddingOnlyBottomLarge + context.paddingLargeHorizontal,
-                      child: const Content(),
-                    ),
-                    Padding(
-                      padding: context.paddingOnlyBottomSmall,
-                      child: const LoginButton(),
-                    ),
-                    Padding(
-                      padding: context.paddingOnlyBottomMedium,
-                      child: const AccountButton(),
-                    ),
-                  ],
-                ),
-              ),
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          // Böyle olunca alttakilerin kendini sıkıştırma sorunu gidiyor
+          height: context.dynamicHeight(1),
+          width: context.dynamicWidth(1),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("monkey_login_screen".toJPG),
+              fit: BoxFit.cover,
             ),
-          );
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: context.paddingOnlyBottomLarge + context.paddingLargeHorizontal,
+                child: const Content(),
+              ),
+              Padding(
+                padding: context.paddingOnlyBottomSmall,
+                child: const LoginButton(),
+              ),
+              Padding(
+                padding: context.paddingOnlyBottomMedium,
+                child: const AccountButton(),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

@@ -5,6 +5,7 @@ import 'package:shopping/core/constants/app/app_constants.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/init/translations/language_manager.dart';
 import 'package:shopping/product/navigator/app_router.dart';
+import 'package:shopping/product/navigator/guard/auth_guard.dart';
 import 'package:shopping/providers/user_provider.dart';
 import 'package:shopping/view/authenticate/register/service/register_service.dart';
 
@@ -38,9 +39,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _appRouter = AppRouter();
   final RegisterService _registerService = RegisterService();
-  bool isloading = false;
+  late final appRouter;
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
@@ -49,19 +50,18 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> getUser() async {
     await _registerService.getUserData(context);
-    isloading = true;
+
+    appRouter = AppRouter(authGuard: AuthGuard(context: context));
+    isLoading = true;
+
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return isloading == false
+    return isLoading == false
         ? Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/monkey_splash_screen.png"),
-              ),
-            ),
+            color: Colors.red,
           )
         : MaterialApp.router(
             theme: ThemeData.light().copyWith(
@@ -77,8 +77,8 @@ class _MyAppState extends State<MyApp> {
                 color: Color(0xffffffff),
               ),
             ),
-            routerDelegate: _appRouter.delegate(),
-            routeInformationParser: _appRouter.defaultRouteParser(),
+            routerDelegate: appRouter.delegate(),
+            routeInformationParser: appRouter.defaultRouteParser(),
             title: ApplicationConstants.APPLICATION_TITLE,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
