@@ -40,7 +40,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final RegisterService _registerService = RegisterService();
-  late final appRouter;
+  late final AppRouter appRouter;
   bool isLoading = false;
   @override
   void initState() {

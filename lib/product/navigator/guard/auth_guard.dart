@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/providers/user_provider.dart';
-import 'package:shopping/view/home/home/view/home_view.dart';
 
 class AuthGuard extends AutoRouteGuard {
   final BuildContext context;
