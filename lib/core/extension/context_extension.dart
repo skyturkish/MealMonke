@@ -18,6 +18,7 @@ extension MediaQueryExtension on BuildContext {
   double get smallValue => height * multiplicand * 1;
   double get mediumValue => height * multiplicand * 2;
   double get largeValue => height * multiplicand * 3;
+  double get largeXValue => height * multiplicand * 4;
   double get largeXXValue => height * multiplicand * 5;
 }
 
@@ -31,6 +32,7 @@ extension PaddingExtensionOnlyTop on BuildContext {
   EdgeInsets get paddingOnlyTopSmall => EdgeInsets.only(top: smallValue);
   EdgeInsets get paddingOnlyTopMedium => EdgeInsets.only(top: mediumValue);
   EdgeInsets get paddingOnlyTopLarge => EdgeInsets.only(top: largeValue);
+  EdgeInsets get paddingOnlyTopLargeX => EdgeInsets.only(top: largeXValue);
   EdgeInsets get paddingOnlyTopLargeXX => EdgeInsets.only(top: largeXXValue);
 }
 
@@ -38,6 +40,8 @@ extension PaddingExtensionOnlyBottom on BuildContext {
   EdgeInsets get paddingOnlyBottomSmall => EdgeInsets.only(bottom: smallValue);
   EdgeInsets get paddingOnlyBottomMedium => EdgeInsets.only(bottom: mediumValue);
   EdgeInsets get paddingOnlyBottomLarge => EdgeInsets.only(bottom: largeValue);
+  EdgeInsets get paddingOnlyBottomLargeX => EdgeInsets.only(bottom: largeXValue);
+
   EdgeInsets get paddingOnlyBottomLargeXX => EdgeInsets.only(bottom: largeXXValue);
 }
 
@@ -45,11 +49,15 @@ extension PaddingExtensionSymetric on BuildContext {
   EdgeInsets get paddingSmallHorizontal => EdgeInsets.symmetric(horizontal: smallValue);
   EdgeInsets get paddingMediumHorizontal => EdgeInsets.symmetric(horizontal: mediumValue);
   EdgeInsets get paddingLargeHorizontal => EdgeInsets.symmetric(horizontal: largeValue);
+  EdgeInsets get paddingLargeXHorizontal => EdgeInsets.symmetric(horizontal: largeXValue);
+
   EdgeInsets get paddingLargeXXHorizontal => EdgeInsets.symmetric(horizontal: largeXXValue);
 
   EdgeInsets get paddingSmallVertical => EdgeInsets.symmetric(vertical: smallValue);
   EdgeInsets get paddingMediumVertical => EdgeInsets.symmetric(vertical: mediumValue);
   EdgeInsets get paddingLargeVertical => EdgeInsets.symmetric(vertical: largeValue);
+  EdgeInsets get paddingLargeXVertical => EdgeInsets.symmetric(vertical: largeXValue);
+
   EdgeInsets get paddingLargeXXVertical => EdgeInsets.symmetric(vertical: largeXXValue);
 }
 

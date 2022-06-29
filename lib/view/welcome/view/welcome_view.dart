@@ -14,9 +14,9 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
           // Böyle olunca alttakilerin kendini sıkıştırma sorunu gidiyor
           height: context.dynamicHeight(1),
           width: context.dynamicWidth(1),

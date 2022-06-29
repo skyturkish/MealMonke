@@ -51,4 +51,18 @@ class TextStylesConstants extends TextStyle {
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.01895));
+
+  static TextStyle homePageMediumTitle({required BuildContext context}) => TextStyle(
+      color: const Color(0xff4a4b4d),
+      fontWeight: FontWeight.w800,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.02369));
+
+  static TextStyle homePageLargeTitle({required BuildContext context}) => TextStyle(
+      color: const Color(0xff4a4b4d),
+      fontWeight: FontWeight.w800,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.02843));
 }
