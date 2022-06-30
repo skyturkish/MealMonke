@@ -41,8 +41,11 @@ extension PaddingExtensionOnlyBottom on BuildContext {
   EdgeInsets get paddingOnlyBottomMedium => EdgeInsets.only(bottom: mediumValue);
   EdgeInsets get paddingOnlyBottomLarge => EdgeInsets.only(bottom: largeValue);
   EdgeInsets get paddingOnlyBottomLargeX => EdgeInsets.only(bottom: largeXValue);
-
   EdgeInsets get paddingOnlyBottomLargeXX => EdgeInsets.only(bottom: largeXXValue);
+}
+
+extension PaddingExtensionOnlyLeft on BuildContext {
+  EdgeInsets get paddingOnlyLeftSmallX => EdgeInsets.only(left: smallValue * 3 / 4);
 }
 
 extension PaddingExtensionSymetric on BuildContext {

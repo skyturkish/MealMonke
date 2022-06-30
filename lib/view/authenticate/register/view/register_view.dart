@@ -83,7 +83,7 @@ class _RegisterViewState extends State<RegisterView> {
             children: [
               Text(
                 LocaleKeys.signUp.tr(),
-                style: TextStylesConstants.titleTextStyle(context: context),
+                style: TextStylesConstants.titleLargeTextStyle(context: context),
               ),
               Padding(
                 padding: context.paddingOnlyTopSmall,

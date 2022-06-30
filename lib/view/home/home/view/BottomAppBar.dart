@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/extension/context_extension.dart';
@@ -28,7 +30,7 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffffffff),
+        backgroundColor: ColorConstants.whiteTextField,
         resizeToAvoidBottomInset: false,
         extendBody: true,
         body: isHome == true
@@ -43,8 +45,8 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
           elevation: 0,
           color: const Color.fromARGB(255, 245, 241, 241),
           child: BottomNavigationBar(
-            selectedItemColor: isHome == true ? const Color(0xffb6b7b7) : ColorConstants.brightOrange,
-            unselectedItemColor: const Color(0xffb6b7b7),
+            selectedItemColor: isHome == true ? ColorConstants.textFieldColor : ColorConstants.brightOrange,
+            unselectedItemColor: ColorConstants.textFieldColor,
             landscapeLayout: BottomNavigationBarLandscapeLayout.spread,
             backgroundColor: Theme.of(context).primaryColor.withAlpha(0),
             elevation: 0, // 0 removes ugly rectangular NavBar shadow
@@ -81,17 +83,17 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
           width: context.dynamicHeight(0.07701),
           height: context.dynamicHeight(0.07701),
           child: RawMaterialButton(
-            fillColor: isHome == true ? ColorConstants.brightOrange : const Color(0xffb6b7b7),
+            fillColor: isHome == true ? ColorConstants.brightOrange : ColorConstants.textFieldColor,
             onPressed: () {
               isHome = true;
               setState(() {});
             },
             shape: const CircleBorder(),
             //elevation: 0.0,
-            child: const Icon(
+            child: Icon(
               Icons.home,
               color: ColorConstants.whiteTextField,
-              size: 35,
+              size: context.dynamicHeight(0.04310),
             ),
           ),
         ),
@@ -100,19 +102,3 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
     );
   }
 }
-
-
-/*Container(
-  width: 200.0,
-  height: 200.0,
-  child: new RawMaterialButton(
-    shape: new CircleBorder(),
-    elevation: 0.0,
-    child: Icon(
-      Icons.favorite,
-      color: Colors.blue,
-    ),
-    onPressed: () {},
-  ),
-);*/
-

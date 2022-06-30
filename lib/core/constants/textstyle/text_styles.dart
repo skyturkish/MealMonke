@@ -11,7 +11,7 @@ class TextStylesConstants extends TextStyle {
       fontSize: context.dynamicHeight(0.01895));
 
   static TextStyle textFieldTextStyle({required BuildContext context}) => TextStyle(
-      color: const Color(0xffb6b7b7),
+      color: ColorConstants.textFieldColor,
       fontWeight: FontWeight.w400,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
@@ -24,20 +24,6 @@ class TextStylesConstants extends TextStyle {
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.01658));
 
-  static TextStyle authButtonTextStyle({required BuildContext context}) => TextStyle(
-      color: const Color(0xffffffff),
-      fontWeight: FontWeight.w500,
-      fontFamily: "Metropolis",
-      fontStyle: FontStyle.normal,
-      fontSize: context.dynamicHeight(0.01421));
-
-  static TextStyle titleTextStyle({required BuildContext context}) => TextStyle(
-      color: const Color(0xff4a4b4d),
-      fontWeight: FontWeight.w800,
-      fontFamily: "Metropolis",
-      fontStyle: FontStyle.normal,
-      fontSize: context.dynamicHeight(0.035545023));
-
   static TextStyle buttonMediumTextStyle({required BuildContext context}) => TextStyle(
       color: ColorConstants.brightOrange,
       fontWeight: FontWeight.w700,
@@ -45,24 +31,73 @@ class TextStylesConstants extends TextStyle {
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.01658));
 
+  static TextStyle foodRegionTextStyle({required BuildContext context}) => TextStyle(
+      color: ColorConstants.shoppingCartBlack,
+      fontWeight: FontWeight.w700,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.01658));
+
+  static TextStyle authButtonTextStyle({required BuildContext context}) => TextStyle(
+      color: ColorConstants.whiteTextField,
+      fontWeight: FontWeight.w500,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.01421));
+
+  static TextStyle titleLargeTextStyle({required BuildContext context}) => TextStyle(
+      color: ColorConstants.shoppingCartBlack,
+      fontWeight: FontWeight.w800,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.035545023));
+
+  static TextStyle titleMediumTextStyle({required BuildContext context}) => TextStyle(
+      color: ColorConstants.shoppingCartBlack,
+      fontWeight: FontWeight.w800,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.02369));
+
+  static TextStyle clickOrangeTextStyle({required BuildContext context}) => TextStyle(
+      color: ColorConstants.brightOrange,
+      fontWeight: FontWeight.w500,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.01540));
+
   static TextStyle buttomMediumTextStyleWhite({required BuildContext context}) => TextStyle(
-      color: const Color(0xffffffff),
+      color: ColorConstants.whiteTextField,
       fontWeight: FontWeight.w600,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.01895));
 
   static TextStyle homePageMediumTitle({required BuildContext context}) => TextStyle(
-      color: const Color(0xff4a4b4d),
+      color: ColorConstants.shoppingCartBlack,
       fontWeight: FontWeight.w800,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.02369));
 
   static TextStyle homePageLargeTitle({required BuildContext context}) => TextStyle(
-      color: const Color(0xff4a4b4d),
+      color: ColorConstants.shoppingCartBlack,
       fontWeight: FontWeight.w800,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.02843));
+
+  static TextStyle recentItemTextStyle({required BuildContext context}) => TextStyle(
+      color: ColorConstants.shoppingCartBlack,
+      fontWeight: FontWeight.w700,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.022167));
+
+  static TextStyle recentItemTextStyleMini({required BuildContext context}) => TextStyle(
+      color: ColorConstants.textFieldColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.013546));
 }

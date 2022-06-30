@@ -6,7 +6,12 @@ import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
 import 'package:shopping/providers/user_provider.dart';
-import 'package:shopping/view/home/model_food/food_model.dart';
+import 'package:shopping/view/_product/_widgets/food/card/region_food.dart';
+import 'package:shopping/view/_product/_widgets/restaurent/card/Popular_restaurent_card.dart';
+import 'package:shopping/view/_product/_widgets/restaurent/card/most_popular.dart';
+import 'package:shopping/view/_product/_widgets/restaurent/listtile/recent_item.dart';
+import 'package:shopping/view/home/models/food_model.dart';
+import 'package:shopping/view/home/models/restaurant_model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -53,7 +58,7 @@ class HomeViewState extends State<HomeView> {
               const Spacer(),
               const Icon(
                 Icons.shopping_cart,
-                color: Color(0xff4a4b4d),
+                color: ColorConstants.shoppingCartBlack,
               ),
             ],
           ),
@@ -65,28 +70,18 @@ class HomeViewState extends State<HomeView> {
               child: Column(
                 children: [
                   Row(
-                    children: const [
+                    children: [
                       Text(
                         "Delivering to",
-                        style: TextStyle(
-                            color: Color(0xffb6b7b7),
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "Metropolis",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 14.0),
+                        style: TextStylesConstants.textFieldTextStyle(context: context),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         "Current Location",
-                        style: TextStyle(
-                            color: Color(0xff7c7d7e),
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "Metropolis",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16.0),
+                        style: TextStylesConstants.sideTextStyle(context: context),
                       ),
                       IconButton(
                         onPressed: () {},
@@ -98,7 +93,7 @@ class HomeViewState extends State<HomeView> {
                     ],
                   ),
                   Padding(
-                    padding: context.paddingOnlyTopLargeX,
+                    padding: context.paddingOnlyTopMedium,
                     child: CustomTextField(
                       controller: _searchController,
                       keyboardType: TextInputType.name,
@@ -113,21 +108,84 @@ class HomeViewState extends State<HomeView> {
               child: ListView(
                 children: [
                   SizedBox(
-                    height: 100,
-                    child: ListView.builder(
-                      physics: const ScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: FoodLists.foods.length * 5,
-                      itemBuilder: ((context, index) {
-                        return const SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: Text("data"),
-                        );
-                      },),
+                    height: 120,
+                    child: Padding(
+                      padding: context.paddingMediumHorizontal + context.paddingOnlyTopSmall,
+                      child: ListView.builder(
+                        physics: const ScrollPhysics(),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: FoodLists.foods.length,
+                        itemBuilder: ((context, index) {
+                          return FoodRegionCard(food: FoodLists.foods[index]);
+                        }),
+                      ),
                     ),
                   ),
+                  Padding(
+                    padding: context.paddingMediumHorizontal + context.paddingOnlyTopLarge,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Popular Restaurents", style: TextStylesConstants.titleMediumTextStyle(context: context)),
+                        Text("View all", style: TextStylesConstants.clickOrangeTextStyle(context: context))
+                      ],
+                    ),
+                  ),
+                  for (var index = 0; index < 3; index++)
+                    SizedBox(
+                      height: context.dynamicHeight(0.5),
+                      child: PopularRestaurantCard(restaurant: RestaurantLists.restaurants[index]),
+                    ),
+                  Padding(
+                    padding: context.paddingOnlyTopLarge + context.paddingMediumHorizontal,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Most Popular", style: TextStylesConstants.homePageMediumTitle(context: context)),
+                            Text("View all", style: TextStylesConstants.clickOrangeTextStyle(context: context))
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: context.paddingOnlyTopMedium,
+                    child: SizedBox(
+                      height: 160,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 7,
+                        itemBuilder: (BuildContext context, int index) {
+                          return MostPopularRestaurentCard(restaurant: RestaurantLists.restaurants[index]);
+                        },
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: context.paddingOnlyTopLarge + context.paddingMediumHorizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Recent Items",
+                          style: TextStylesConstants.homePageLargeTitle(context: context),
+                        ),
+                        Text("View all", style: TextStylesConstants.clickOrangeTextStyle(context: context))
+                      ],
+                    ),
+                  ),
+                  for (var index = 0; index < 3; index++)
+                    Padding(
+                      padding: context.paddingMediumHorizontal + context.paddingOnlyTopMedium,
+                      child: SizedBox(
+                        height: context.dynamicHeight(0.09236),
+                        child: RecentRestaurentListItem(restaurant: RestaurantLists.restaurants[index]),
+                      ),
+                    ),
                 ],
               ),
             ),

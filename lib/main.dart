@@ -67,7 +67,6 @@ class _MyAppState extends State<MyApp> {
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarColor: Colors.red,
                 ),
-                titleTextStyle: TextStyle(color: Colors.black), // TODO will delete
                 elevation: 0,
                 color: Color(0xffffffff),
               ),

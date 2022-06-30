@@ -70,7 +70,7 @@ class _LoginViewState extends State<LoginView> {
           key: _signInFormKey,
           child: Column(
             children: [
-              Text(LocaleKeys.login.tr(), style: TextStylesConstants.titleTextStyle(context: context)),
+              Text(LocaleKeys.login.tr(), style: TextStylesConstants.titleLargeTextStyle(context: context)),
               Padding(
                 padding: context.paddingOnlyTopSmall,
                 child: const InfoText(),
