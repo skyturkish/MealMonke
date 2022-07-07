@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/core/constants/app/app_constants.dart';
+import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/init/translations/language_manager.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/navigator/guard/auth_guard.dart';
@@ -44,6 +45,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    // setUpSystemChrome();
     getUser();
   }
 
@@ -54,6 +56,23 @@ class _MyAppState extends State<MyApp> {
     setState(() {});
   }
 
+  // void setUpSystemChrome() {
+  //   Future.delayed(const Duration(milliseconds: 1)).then(
+  //     (value) => SystemChrome.setSystemUIOverlayStyle(
+  //       const SystemUiOverlayStyle(
+  //            statusBarBrightness: ,
+  //              statusBarColor: Colors.transparent,
+  //            statusBarIconBrightness: ,
+  //            systemNavigationBarColor: ,
+  //            systemNavigationBarContrastEnforced: ,
+  //            systemNavigationBarDividerColor: ,
+  //            systemNavigationBarIconBrightness: ,
+  //            systemStatusBarContrastEnforced: ,
+  //           ),
+  //     ),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return isLoading == false
@@ -61,14 +80,15 @@ class _MyAppState extends State<MyApp> {
             color: Colors.red,
           )
         : MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             theme: ThemeData.light().copyWith(
-              scaffoldBackgroundColor: const Color(0xffffffff),
-              appBarTheme: const AppBarTheme(
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Colors.red,
+              scaffoldBackgroundColor: ColorConstants.white,
+              appBarTheme: AppBarTheme(
+                systemOverlayStyle: const SystemUiOverlayStyle().copyWith(
+                  statusBarColor: Colors.transparent,
                 ),
                 elevation: 0,
-                color: Color(0xffffffff),
+                color: ColorConstants.white,
               ),
             ),
             routerDelegate: appRouter.delegate(),

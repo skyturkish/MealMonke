@@ -6,6 +6,7 @@ import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
+import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
 part "reset_password_part.dart";
 
 class ResetPasswordView extends StatefulWidget {
@@ -33,33 +34,35 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            Text(
-              LocaleKeys.resetPassword.tr(),
-              style: TextStylesConstants.titleLargeTextStyle(context: context),
-            ),
-            Padding(
-              padding: context.paddingOnlyTopSmall + context.paddingMediumHorizontal,
-              child: const Content(),
-            ),
-            Padding(
-              padding: context.paddingOnlyTopLargeXX,
-              child: EmailTextField(emailController: _emailController),
-            ),
-            Padding(
-              padding: context.paddingOnlyTopLarge,
-              child: const SendButton(),
-            ),
-          ],
+    return MySafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        body: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Text(
+                LocaleKeys.resetPassword.tr(),
+                style: TextStylesConstants.titleLargeTextStyle(context: context),
+              ),
+              Padding(
+                padding: context.paddingOnlyTopSmall + context.paddingMediumHorizontal,
+                child: const Content(),
+              ),
+              Padding(
+                padding: context.paddingOnlyTopLargeXX,
+                child: EmailTextField(emailController: _emailController),
+              ),
+              Padding(
+                padding: context.paddingOnlyTopLarge,
+                child: const SendButton(),
+              ),
+            ],
+          ),
         ),
       ),
     );

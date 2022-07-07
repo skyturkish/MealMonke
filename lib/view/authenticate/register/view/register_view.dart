@@ -9,6 +9,7 @@ import 'package:shopping/product/widget/textfield/custom_textfield.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
+import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
 import 'package:shopping/view/authenticate/register/service/lRegisterService.dart';
 import 'package:shopping/view/authenticate/register/service/register_service.dart';
 part "register_view_part.dart";
@@ -70,7 +71,7 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return MySafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -79,59 +80,62 @@ class _RegisterViewState extends State<RegisterView> {
         ),
         body: Form(
           key: _signUpFormKey,
-          child: Column(
-            children: [
-              Text(
-                LocaleKeys.signUp.tr(),
-                style: TextStylesConstants.titleLargeTextStyle(context: context),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopSmall,
-                child: const ContentText(),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopMedium,
-                child: NameTextField(nameController: _nameController, nameFocusNode: _nameFocusNode),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopMedium,
-                child: EmailTextField(emailController: _emailController),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopMedium,
-                child: MobileNoTextField(mobileNoController: _mobileNoController),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopMedium,
-                child: AddressTextField(addressController: _addressController),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopMedium,
-                child: PasswordTextField(passwordController: _passwordController),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopMedium,
-                child: ConfirmPasswordTextField(passwordConfirmController: _passwordConfirmController),
-              ),
-              Padding(
-                padding: context.paddingOnlyTopMedium,
-                child: CustomElevatedButton(
-                  onPressed: () {
-                    if (_signUpFormKey.currentState!.validate()) {
-                      signUpUser();
-                    }
-                  },
-                  primary: ColorConstants.brightOrange,
-                  child: Text(LocaleKeys.signUp.tr(),
-                      style: TextStylesConstants.metroPolis(color: ColorConstants.whiteTextField, context: context)),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  LocaleKeys.signUp.tr(),
+                  style: TextStylesConstants.titleLargeTextStyle(context: context),
                 ),
-              ),
-              const Spacer(),
-              Padding(
-                padding: context.paddingOnlyBottomMedium,
-                child: const BottomText(),
-              )
-            ],
+                Padding(
+                  padding: context.paddingOnlyTopSmall,
+                  child: const ContentText(),
+                ),
+                Padding(
+                  padding: context.paddingOnlyTopMedium,
+                  child: NameTextField(nameController: _nameController, nameFocusNode: _nameFocusNode),
+                ),
+                Padding(
+                  padding: context.paddingOnlyTopMedium,
+                  child: EmailTextField(emailController: _emailController),
+                ),
+                Padding(
+                  padding: context.paddingOnlyTopMedium,
+                  child: MobileNoTextField(mobileNoController: _mobileNoController),
+                ),
+                Padding(
+                  padding: context.paddingOnlyTopMedium,
+                  child: AddressTextField(addressController: _addressController),
+                ),
+                Padding(
+                  padding: context.paddingOnlyTopMedium,
+                  child: PasswordTextField(passwordController: _passwordController),
+                ),
+                Padding(
+                  padding: context.paddingOnlyTopMedium,
+                  child: ConfirmPasswordTextField(passwordConfirmController: _passwordConfirmController),
+                ),
+                Padding(
+                  padding: context.paddingOnlyTopMedium,
+                  child: CustomElevatedButton(
+                    onPressed: () {
+                      if (_signUpFormKey.currentState!.validate()) {
+                        signUpUser();
+                      }
+                    },
+                    primary: ColorConstants.brightOrange,
+                    child: Text(LocaleKeys.signUp.tr(),
+                        style: TextStylesConstants.metroPolis(color: ColorConstants.white, context: context)),
+                  ),
+                ),
+                const Spacer(),
+                Padding(
+                  padding: context.paddingOnlyBottomMedium,
+                  child: const BottomText(),
+                )
+              ],
+            ),
           ),
         ),
       ),

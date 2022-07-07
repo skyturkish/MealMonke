@@ -45,7 +45,7 @@ class SendButton extends StatelessWidget {
       onPressed: () {},
       primary: ColorConstants.brightOrange,
       child: Text(LocaleKeys.send.tr(),
-          style: TextStylesConstants.metroPolis(color: ColorConstants.whiteTextField, context: context)),
+          style: TextStylesConstants.metroPolis(color: ColorConstants.white, context: context)),
     );
   }
 }

@@ -30,7 +30,7 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorConstants.whiteTextField,
+        backgroundColor: ColorConstants.white,
         resizeToAvoidBottomInset: false,
         extendBody: true,
         body: isHome == true
@@ -45,8 +45,8 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
           elevation: 0,
           color: const Color.fromARGB(255, 245, 241, 241),
           child: BottomNavigationBar(
-            selectedItemColor: isHome == true ? ColorConstants.textFieldColor : ColorConstants.brightOrange,
-            unselectedItemColor: ColorConstants.textFieldColor,
+            selectedItemColor: isHome == true ? ColorConstants.wolfram : ColorConstants.brightOrange,
+            unselectedItemColor: ColorConstants.wolfram,
             landscapeLayout: BottomNavigationBarLandscapeLayout.spread,
             backgroundColor: Theme.of(context).primaryColor.withAlpha(0),
             elevation: 0, // 0 removes ugly rectangular NavBar shadow
@@ -83,16 +83,18 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
           width: context.dynamicHeight(0.07701),
           height: context.dynamicHeight(0.07701),
           child: RawMaterialButton(
-            fillColor: isHome == true ? ColorConstants.brightOrange : ColorConstants.textFieldColor,
+            fillColor: isHome == true ? ColorConstants.brightOrange : ColorConstants.wolfram,
             onPressed: () {
               isHome = true;
               setState(() {});
+              print(context.height);
+              print(context.width);
             },
             shape: const CircleBorder(),
             //elevation: 0.0,
             child: Icon(
               Icons.home,
-              color: ColorConstants.whiteTextField,
+              color: ColorConstants.white,
               size: context.dynamicHeight(0.04310),
             ),
           ),

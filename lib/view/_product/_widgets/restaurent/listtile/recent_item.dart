@@ -77,7 +77,11 @@ class InformationRestaurent extends StatelessWidget {
                 color: ColorConstants.brightOrange,
               ),
               Text(
-                "ratings",
+                restaurant.score.toString(),
+                style: TextStylesConstants.clickOrangeTextStyle(context: context),
+              ),
+              Text(
+                "  ( ${restaurant.ratings} ratings)",
                 style: TextStylesConstants.recentItemTextStyleMini(context: context),
               ),
             ],

@@ -9,6 +9,7 @@ import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
+import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
 import 'package:shopping/view/authenticate/login/service/ILoginService.dart';
 import 'package:shopping/view/authenticate/login/service/login_service.dart';
 part 'login_view_part.dart';
@@ -59,7 +60,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return MySafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(

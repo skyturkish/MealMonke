@@ -11,7 +11,7 @@ class TextStylesConstants extends TextStyle {
       fontSize: context.dynamicHeight(0.01895));
 
   static TextStyle textFieldTextStyle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.textFieldColor,
+      color: const Color.fromARGB(255, 147, 150, 150),
       fontWeight: FontWeight.w400,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
@@ -32,28 +32,28 @@ class TextStylesConstants extends TextStyle {
       fontSize: context.dynamicHeight(0.01658));
 
   static TextStyle foodRegionTextStyle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.shoppingCartBlack,
+      color: ColorConstants.darkShadow,
       fontWeight: FontWeight.w700,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.01658));
 
   static TextStyle authButtonTextStyle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.whiteTextField,
+      color: ColorConstants.white,
       fontWeight: FontWeight.w500,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.01421));
 
   static TextStyle titleLargeTextStyle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.shoppingCartBlack,
+      color: ColorConstants.darkShadow,
       fontWeight: FontWeight.w800,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.035545023));
 
   static TextStyle titleMediumTextStyle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.shoppingCartBlack,
+      color: ColorConstants.darkShadow,
       fontWeight: FontWeight.w800,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
@@ -67,35 +67,35 @@ class TextStylesConstants extends TextStyle {
       fontSize: context.dynamicHeight(0.01540));
 
   static TextStyle buttomMediumTextStyleWhite({required BuildContext context}) => TextStyle(
-      color: ColorConstants.whiteTextField,
+      color: ColorConstants.white,
       fontWeight: FontWeight.w600,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.01895));
 
   static TextStyle homePageMediumTitle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.shoppingCartBlack,
+      color: ColorConstants.darkShadow,
       fontWeight: FontWeight.w800,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.02369));
 
   static TextStyle homePageLargeTitle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.shoppingCartBlack,
+      color: ColorConstants.darkShadow,
       fontWeight: FontWeight.w800,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.02843));
 
   static TextStyle recentItemTextStyle({required BuildContext context}) => TextStyle(
-      color: ColorConstants.shoppingCartBlack,
+      color: ColorConstants.darkShadow,
       fontWeight: FontWeight.w700,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,
       fontSize: context.dynamicHeight(0.022167));
 
   static TextStyle recentItemTextStyleMini({required BuildContext context}) => TextStyle(
-      color: ColorConstants.textFieldColor,
+      color: ColorConstants.wolfram,
       fontWeight: FontWeight.w400,
       fontFamily: "Metropolis",
       fontStyle: FontStyle.normal,

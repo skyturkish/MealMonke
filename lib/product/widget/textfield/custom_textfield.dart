@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
         width: height ?? context.dynamicWidth(0.9),
         height: context.dynamicHeight(0.069),
         decoration: const BoxDecoration(
-          color: ColorConstants.textFieldColor,
+          color: Color(0xfff2f2f2),
           borderRadius: BorderRadius.all(
             Radius.circular(90),
           ),
@@ -45,11 +45,11 @@ class CustomTextField extends StatelessWidget {
               decoration: InputDecoration(
                   label: label,
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorConstants.textFieldColor),
+                    borderSide: BorderSide(color: Color(0xfff2f2f2)),
                   ),
                   enabledBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(
-                      color: ColorConstants.textFieldColor,
+                      color: Color(0xfff2f2f2),
                     ),
                   ),
                   hintText: hintText,

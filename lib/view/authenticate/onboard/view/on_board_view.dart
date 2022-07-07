@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/extension/context_extension.dart';
+import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
 import 'package:shopping/view/authenticate/onboard/model/on_board_model.dart';
 import 'package:shopping/view/authenticate/onboard/model/page_indicator_style_model.dart';
 import 'package:shopping/view/authenticate/onboard/widget/page_indicator.dart';
@@ -17,7 +18,7 @@ class _OnBoardViewState extends State<OnBoardView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return MySafeArea(
       child: Scaffold(
           backgroundColor: const Color(0xffffffff),
           body: SizedBox(
