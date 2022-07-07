@@ -46,6 +46,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     // setUpSystemChrome();
+    _updateAppbar();
     getUser();
   }
 
@@ -56,19 +57,14 @@ class _MyAppState extends State<MyApp> {
     setState(() {});
   }
 
+  void _updateAppbar() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+  }
+
   // void setUpSystemChrome() {
   //   Future.delayed(const Duration(milliseconds: 1)).then(
   //     (value) => SystemChrome.setSystemUIOverlayStyle(
-  //       const SystemUiOverlayStyle(
-  //            statusBarBrightness: ,
-  //              statusBarColor: Colors.transparent,
-  //            statusBarIconBrightness: ,
-  //            systemNavigationBarColor: ,
-  //            systemNavigationBarContrastEnforced: ,
-  //            systemNavigationBarDividerColor: ,
-  //            systemNavigationBarIconBrightness: ,
-  //            systemStatusBarContrastEnforced: ,
-  //           ),
+  //       const SystemUiOverlayStyle(),
   //     ),
   //   );
   // }
@@ -85,8 +81,9 @@ class _MyAppState extends State<MyApp> {
               scaffoldBackgroundColor: ColorConstants.white,
               appBarTheme: AppBarTheme(
                 systemOverlayStyle: const SystemUiOverlayStyle().copyWith(
-                  statusBarColor: Colors.transparent,
-                ),
+                    statusBarColor: Colors.transparent,
+                    systemNavigationBarColor: Colors.red,
+                    systemNavigationBarDividerColor: Colors.red),
                 elevation: 0,
                 color: ColorConstants.white,
               ),

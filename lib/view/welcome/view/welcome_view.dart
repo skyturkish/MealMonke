@@ -8,14 +8,14 @@ import 'package:shopping/core/extension/string_extension.dart';
 import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
-import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MySafeArea(
+    return SafeArea(
+      top: false,
       child: Scaffold(
         body: Container(
           // Böyle olunca alttakilerin kendini sıkıştırma sorunu gidiyor
