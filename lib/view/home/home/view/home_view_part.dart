@@ -89,16 +89,19 @@ class PopularRestaurants extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Popular Restaurents", style: TextStylesConstants.titleMediumTextStyle(context: context)),
+              Text("Popular Restaurents", style: TextStylesConstants.homePageMediumTitle(context: context)),
               Text("View all", style: TextStylesConstants.clickOrangeTextStyle(context: context))
             ],
           ),
         ),
-        for (var index = 0; index < 3; index++)
-          SizedBox(
-            height: context.dynamicHeight(0.5),
-            child: PopularRestaurantCard(restaurant: RestaurantLists.restaurants[index]),
-          ),
+        Column(
+          children: RestaurantLists.restaurants
+              .map((restaurant) => SizedBox(
+                    height: context.dynamicHeight(0.5),
+                    child: PopularRestaurantCard(restaurant: restaurant),
+                  ))
+              .toList(),
+        )
       ],
     );
   }

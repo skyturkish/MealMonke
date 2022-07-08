@@ -44,8 +44,7 @@ class SendButton extends StatelessWidget {
     return CustomElevatedButton(
       onPressed: () {},
       primary: ColorConstants.brightOrange,
-      child: Text(LocaleKeys.send.tr(),
-          style: TextStylesConstants.metroPolis(color: ColorConstants.white, context: context)),
+      child: Text(LocaleKeys.send.tr(), style: TextStylesConstants.buttomMediumTextStyleWhite(context: context)),
     );
   }
 }

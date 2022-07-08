@@ -10,8 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
-import 'package:shopping/view/authenticate/register/service/lRegisterService.dart';
-import 'package:shopping/view/authenticate/register/service/register_service.dart';
+import 'package:shopping/view/authenticate/register/viewmodel/register_view_model.dart';
 part "register_view_part.dart";
 
 class RegisterView extends StatefulWidget {
@@ -21,54 +20,7 @@ class RegisterView extends StatefulWidget {
   State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
-  final _signUpFormKey = GlobalKey<FormState>();
-
-  //Controllers
-  late final TextEditingController _nameController;
-  late final TextEditingController _emailController;
-  late final TextEditingController _mobileNoController;
-  late final TextEditingController _addressController;
-  late final TextEditingController _passwordController;
-  late final TextEditingController _passwordConfirmController;
-  // FocusNodes
-  late final FocusNode _nameFocusNode;
-
-  late final IRegisterService _registerService;
-
-  @override
-  void initState() {
-    super.initState();
-    _nameController = TextEditingController();
-    _emailController = TextEditingController();
-    _mobileNoController = TextEditingController();
-    _addressController = TextEditingController();
-    _passwordController = TextEditingController();
-    _passwordConfirmController = TextEditingController();
-    _nameFocusNode = FocusNode();
-    _registerService = RegisterService();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _nameController.dispose();
-    _nameFocusNode.dispose();
-    _mobileNoController.dispose();
-    _addressController.dispose();
-    _passwordController.dispose();
-    _passwordConfirmController.dispose();
-  }
-
-  Future<void> signUpUser() async {
-    await _registerService.signUpUser(
-      context: context,
-      name: _nameController.text,
-      email: _emailController.text,
-      password: _passwordController.text,
-    );
-  }
-
+class _RegisterViewState extends RegisterViewModel {
   @override
   Widget build(BuildContext context) {
     final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
@@ -83,7 +35,7 @@ class _RegisterViewState extends State<RegisterView> {
         body: SingleChildScrollView(
           physics: const ScrollPhysics(),
           child: Form(
-            key: _signUpFormKey,
+            key: signUpFormKey,
             child: SizedBox(
               height: context.dynamicHeight(isKeyboard ? 1.23 : 0.9),
               child: Column(
@@ -99,39 +51,40 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   Padding(
                     padding: context.paddingOnlyTopMedium,
-                    child: NameTextField(nameController: _nameController, nameFocusNode: _nameFocusNode),
+                    child: NameTextField(nameController: nameController, nameFocusNode: nameFocusNode),
                   ),
                   Padding(
                     padding: context.paddingOnlyTopMedium,
-                    child: EmailTextField(emailController: _emailController),
+                    child: EmailTextField(emailController: emailController),
                   ),
                   Padding(
                     padding: context.paddingOnlyTopMedium,
-                    child: MobileNoTextField(mobileNoController: _mobileNoController),
+                    child: MobileNoTextField(mobileNoController: mobileNoController),
                   ),
                   Padding(
                     padding: context.paddingOnlyTopMedium,
-                    child: AddressTextField(addressController: _addressController),
+                    child: AddressTextField(addressController: addressController),
                   ),
                   Padding(
                     padding: context.paddingOnlyTopMedium,
-                    child: PasswordTextField(passwordController: _passwordController),
+                    child: PasswordTextField(passwordController: passwordController),
                   ),
                   Padding(
                     padding: context.paddingOnlyTopMedium,
-                    child: ConfirmPasswordTextField(passwordConfirmController: _passwordConfirmController),
+                    child: ConfirmPasswordTextField(passwordConfirmController: passwordConfirmController),
                   ),
                   Padding(
                     padding: context.paddingOnlyTopMedium,
                     child: CustomElevatedButton(
                       onPressed: () {
-                        if (_signUpFormKey.currentState!.validate()) {
+                        if (signUpFormKey.currentState!.validate()) {
                           signUpUser();
+                          FocusManager.instance.primaryFocus?.unfocus();
                         }
                       },
                       primary: ColorConstants.brightOrange,
                       child: Text(LocaleKeys.signUp.tr(),
-                          style: TextStylesConstants.metroPolis(color: ColorConstants.white, context: context)),
+                          style: TextStylesConstants.buttomMediumTextStyleWhite(context: context)),
                     ),
                   ),
                   Padding(

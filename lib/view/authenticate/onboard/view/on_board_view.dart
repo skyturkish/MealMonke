@@ -20,37 +20,37 @@ class _OnBoardViewState extends State<OnBoardView> {
   Widget build(BuildContext context) {
     return MySafeArea(
       child: Scaffold(
-          backgroundColor: const Color(0xffffffff),
+          backgroundColor: ColorConstants.white,
           body: SizedBox(
             height: context.dynamicHeight(1),
             width: context.dynamicWidth(1),
-            child: Stack(
+            child: Column(
               children: [
-                PageView.builder(
-                  itemCount: OnBoardList.pages.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration:
-                          BoxDecoration(image: DecorationImage(image: AssetImage(OnBoardList.pages[index].imagePath))),
-                    );
-                  },
-                  onPageChanged: (int index) {
-                    pageindex = index;
-                  },
-                ),
                 SizedBox(
-                  height: context.dynamicHeight(1),
-                  width: context.dynamicWidth(1),
-                  child: PageIndicator(
-                    count: OnBoardList.pages.length,
-                    activePage: pageindex,
-                    pageIndicatorStyle: PageIndicatorStyle(
-                        width: context.dynamicWidth(0.05 * OnBoardList.pages.length),
-                        activeColor: ColorConstants.brightOrange,
-                        activeSize: const Size(18, 18),
-                        inactiveColor: ColorConstants.paleRed,
-                        inactiveSize: const Size(12, 12)),
+                  height: 300,
+                  child: PageView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: OnBoardList.pages.length,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        child: Image.asset(OnBoardList.pages[index].imagePath),
+                      );
+                    },
+                    onPageChanged: (int index) {
+                      pageindex = index;
+                      setState(() {});
+                    },
                   ),
+                ),
+                PageIndicator(
+                  count: OnBoardList.pages.length,
+                  activePage: pageindex,
+                  pageIndicatorStyle: PageIndicatorStyle(
+                      width: context.dynamicWidth(0.05 * OnBoardList.pages.length),
+                      activeColor: ColorConstants.brightOrange,
+                      activeSize: const Size(18, 18),
+                      inactiveColor: ColorConstants.paleRed,
+                      inactiveSize: const Size(12, 12)),
                 ),
               ],
             ),

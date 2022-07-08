@@ -40,19 +40,23 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final RegisterService _registerService = RegisterService();
+
   late final AppRouter appRouter;
+
   bool isLoading = false;
+
   @override
   void initState() {
     super.initState();
-    // setUpSystemChrome();
     _updateAppbar();
     getUser();
   }
 
   Future<void> getUser() async {
     await _registerService.getUserData(context);
-    appRouter = AppRouter(authGuard: AuthGuard(context: context));
+    appRouter = AppRouter(
+      authGuard: AuthGuard(context: context),
+    );
     isLoading = true;
     setState(() {});
   }
@@ -60,14 +64,6 @@ class _MyAppState extends State<MyApp> {
   void _updateAppbar() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
   }
-
-  // void setUpSystemChrome() {
-  //   Future.delayed(const Duration(milliseconds: 1)).then(
-  //     (value) => SystemChrome.setSystemUIOverlayStyle(
-  //       const SystemUiOverlayStyle(),
-  //     ),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {

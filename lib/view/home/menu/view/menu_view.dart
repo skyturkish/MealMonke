@@ -4,7 +4,10 @@ import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/product/widget/appbar/custom_appbar.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
-import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
+import 'package:shopping/view/_product/_widgets/listtile/menu_item.dart';
+import 'package:shopping/view/home/menu/model/menu_item_model.dart';
+
+part 'menu_view_part.dart';
 
 class MenuView extends StatefulWidget {
   const MenuView({Key? key}) : super(key: key);
@@ -30,8 +33,9 @@ class _MenuViewState extends State<MenuView> {
 
   @override
   Widget build(BuildContext context) {
-    return MySafeArea(
+    return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Column(
           children: [
             Padding(
@@ -53,25 +57,11 @@ class _MenuViewState extends State<MenuView> {
               ),
             ),
             SizedBox(
-              height: context.dynamicHeight(0.5972),
+              height: context.dynamicHeight(0.6572),
               width: context.dynamicWidth(1),
               child: Padding(
                 padding: context.paddingOnlyTopMedium,
-                child: Stack(
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: ColorConstants.brightOrange,
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(55),
-                          bottomRight: Radius.circular(55),
-                        ),
-                      ),
-                      height: context.dynamicHeight(0.5972),
-                      width: context.dynamicWidth(0.2586),
-                    ),
-                  ],
-                ),
+                child: const Menu(),
               ),
             )
           ],

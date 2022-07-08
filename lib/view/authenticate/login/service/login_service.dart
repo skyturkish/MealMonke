@@ -32,7 +32,7 @@ class LoginService extends ILoginService {
 
         Provider.of<UserProvider>(context, listen: false).setUser(response.body);
         await prefs.setString(ApplicationConstants.CACHE_TOKEN_STRING_NAME, jsonDecode(response.body)['token']);
-        context.router.push(const BottomAppBarRoute());
+        context.router.push(const OnBoardRoute());
       },
     );
   }

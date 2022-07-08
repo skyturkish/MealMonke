@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/extension/context_extension.dart';
+import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
 import 'package:shopping/view/home/home/view/home_view.dart';
 import 'package:shopping/view/home/menu/view/menu_view.dart';
 import 'package:shopping/view/home/more/view/more_view.dart';
@@ -28,7 +29,7 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return MySafeArea(
       child: Scaffold(
         backgroundColor: ColorConstants.white,
         resizeToAvoidBottomInset: false,
@@ -87,8 +88,6 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
             onPressed: () {
               isHome = true;
               setState(() {});
-              print(context.height);
-              print(context.width);
             },
             shape: const CircleBorder(),
             //elevation: 0.0,

@@ -79,7 +79,7 @@ class LoginButton extends StatelessWidget {
         );
       },
       primary: ColorConstants.brightOrange,
-      child: Text(LocaleKeys.login.tr(), style: TextStylesConstants.metroPolis(color: Colors.white, context: context)),
+      child: Text(LocaleKeys.login.tr(), style: TextStylesConstants.buttomMediumTextStyleWhite(context: context)),
     );
   }
 }
@@ -105,8 +105,7 @@ class AccountButton extends StatelessWidget {
           );
         },
         primary: Colors.white,
-        child: Text(LocaleKeys.createAccount.tr(),
-            style: TextStylesConstants.metroPolis(color: ColorConstants.brightOrange, context: context)),
+        child: Text(LocaleKeys.createAccount.tr(), style: TextStylesConstants.buttonMediumTextStyle(context: context)),
       ),
     );
   }

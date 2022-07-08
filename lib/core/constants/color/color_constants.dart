@@ -7,4 +7,6 @@ class ColorConstants {
   static const white = Color(0xffffffff);
   static const darkShadow = Color(0xff4a4b4d);
   static const wolfram = Color(0xffb6b7b7);
+  static const namaraGrey = Color(0xff7c7d7e);
+  static const bleachedSilk = Color(0xfff2f2f2);
 }

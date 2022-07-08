@@ -17,17 +17,17 @@ class OnBoardList {
     OnBoardModel(
       title: LocaleKeys.findFood.tr(),
       description: LocaleKeys.discoverTheBestFoods.tr(),
-      imagePath: "assets/images/onboard/first.jpg",
+      imagePath: "assets/images/onboard_photo_1.png",
     ),
     OnBoardModel(
       title: LocaleKeys.fastDelivery.tr(),
       description: LocaleKeys.fastFood.tr(),
-      imagePath: "assets/images/onboard/second.jpg",
+      imagePath: "assets/images/onboard_photo_2.png",
     ),
     OnBoardModel(
       title: LocaleKeys.liveTracking.tr(),
       description: LocaleKeys.realTime.tr(),
-      imagePath: "assets/images/onboard/third.jpg",
+      imagePath: "assets/images/onboard_photo_3.png",
     ),
   ];
 }
