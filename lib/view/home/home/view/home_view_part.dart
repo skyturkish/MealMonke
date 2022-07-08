@@ -16,7 +16,7 @@ class ConstantTexts extends StatelessWidget {
         Row(
           children: [
             Text(
-              "Delivering to",
+              LocaleKeys.deliveringTo.tr(),
               style: TextStylesConstants.textFieldTextStyle(context: context),
             ),
           ],
@@ -24,7 +24,7 @@ class ConstantTexts extends StatelessWidget {
         Row(
           children: [
             Text(
-              "Current Location",
+              LocaleKeys.currentLocation.tr(),
               style: TextStylesConstants.sideTextStyle(context: context),
             ),
             IconButton(
@@ -41,7 +41,7 @@ class ConstantTexts extends StatelessWidget {
           child: CustomTextField(
             controller: _searchController,
             keyboardType: TextInputType.name,
-            hintText: 'Search food',
+            hintText: LocaleKeys.searchFood.tr(),
             label: const Icon(Icons.search),
           ),
         )
@@ -89,8 +89,9 @@ class PopularRestaurants extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Popular Restaurents", style: TextStylesConstants.homePageMediumTitle(context: context)),
-              Text("View all", style: TextStylesConstants.clickOrangeTextStyle(context: context))
+              Text(LocaleKeys.popularRestaurents.tr(),
+                  style: TextStylesConstants.homePageMediumTitle(context: context)),
+              Text(LocaleKeys.viewAll.tr(), style: TextStylesConstants.clickOrangeTextStyle(context: context))
             ],
           ),
         ),
@@ -123,8 +124,8 @@ class MostPopularRestaurants extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Most Popular", style: TextStylesConstants.homePageMediumTitle(context: context)),
-                  Text("View all", style: TextStylesConstants.clickOrangeTextStyle(context: context))
+                  Text(LocaleKeys.mostPopular.tr(), style: TextStylesConstants.homePageMediumTitle(context: context)),
+                  Text(LocaleKeys.viewAll.tr(), style: TextStylesConstants.clickOrangeTextStyle(context: context))
                 ],
               ),
             ],
@@ -164,10 +165,10 @@ class RecentRestaurants extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Recent Items",
+                LocaleKeys.recentItems.tr(),
                 style: TextStylesConstants.homePageLargeTitle(context: context),
               ),
-              Text("View all", style: TextStylesConstants.clickOrangeTextStyle(context: context))
+              Text(LocaleKeys.viewAll.tr(), style: TextStylesConstants.clickOrangeTextStyle(context: context))
             ],
           ),
         ),

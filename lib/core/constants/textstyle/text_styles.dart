@@ -12,6 +12,13 @@ class TextStylesConstants extends TextStyle {
         fontStyle: FontStyle.normal,
         fontSize: context.dynamicHeight(0.013546),
       );
+
+  static TextStyle smallGreyTextField({required BuildContext context}) => TextStyle(
+      color: ColorConstants.namaraGrey,
+      fontWeight: FontWeight.w500,
+      fontFamily: "Metropolis",
+      fontStyle: FontStyle.normal,
+      fontSize: context.dynamicHeight(0.01354));
   static TextStyle authButtonTextStyle({required BuildContext context}) => TextStyle(
       color: ColorConstants.white,
       fontWeight: FontWeight.w500,

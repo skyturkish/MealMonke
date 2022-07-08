@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
+import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/widget/appbar/custom_appbar.dart';
 
 class MoreView extends StatefulWidget {
@@ -21,7 +23,7 @@ class _MoreViewState extends State<MoreView> {
               padding: context.paddingMediumHorizontal,
               child: CustomAppBar(
                 leading: Text(
-                  "More",
+                  LocaleKeys.more.tr(),
                   style: TextStylesConstants.titleLargeTextStyle(context: context),
                 ),
               ),

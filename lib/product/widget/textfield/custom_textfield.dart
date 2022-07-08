@@ -9,14 +9,14 @@ class CustomTextField extends StatelessWidget {
       required this.controller,
       this.focusNode,
       required this.keyboardType,
-      required this.hintText,
+      this.hintText = "",
       this.height,
       this.label})
       : super(key: key);
   final TextEditingController controller;
   final FocusNode? focusNode;
   final TextInputType keyboardType;
-  final String hintText;
+  final String? hintText;
   final double? height;
   final Widget? label;
 

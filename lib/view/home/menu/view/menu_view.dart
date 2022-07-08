@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
+import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/widget/appbar/custom_appbar.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
 import 'package:shopping/view/_product/_widgets/listtile/menu_item.dart';
@@ -42,7 +44,7 @@ class _MenuViewState extends State<MenuView> {
               padding: context.paddingMediumHorizontal,
               child: CustomAppBar(
                 leading: Text(
-                  "Menu",
+                  LocaleKeys.menu.tr(),
                   style: TextStylesConstants.titleLargeTextStyle(context: context),
                 ),
               ),
@@ -52,7 +54,7 @@ class _MenuViewState extends State<MenuView> {
               child: CustomTextField(
                 controller: _searchController,
                 keyboardType: TextInputType.name,
-                hintText: "Search Food",
+                hintText: LocaleKeys.searchFood.tr(),
                 label: const Icon(Icons.search),
               ),
             ),

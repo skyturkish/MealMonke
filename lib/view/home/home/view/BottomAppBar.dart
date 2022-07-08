@@ -1,8 +1,10 @@
 // ignore_for_file: file_names
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/extension/context_extension.dart';
+import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/view/_product/_widgets/safearea/my_safe_area.dart';
 import 'package:shopping/view/home/home/view/home_view.dart';
 import 'package:shopping/view/home/menu/view/menu_view.dart';
@@ -60,22 +62,22 @@ class _BottomAppBarViewState extends State<BottomAppBarView> {
                 isHome = false;
               },
             ),
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.menu),
-                label: 'Menu',
+                icon: const Icon(Icons.menu),
+                label: LocaleKeys.menu.tr(),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag),
-                label: 'Offers',
+                icon: const Icon(Icons.shopping_bag),
+                label: LocaleKeys.offers.tr(),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.account_box),
-                label: 'Profile',
+                icon: const Icon(Icons.account_box),
+                label: LocaleKeys.profile.tr(),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.more_horiz_outlined),
-                label: 'More',
+                icon: const Icon(Icons.more_horiz_outlined),
+                label: LocaleKeys.more.tr(),
               ),
             ],
           ),

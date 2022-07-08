@@ -17,7 +17,7 @@ void main() async {
     EasyLocalization(
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: ApplicationConstants.TRANSLATIONS_ASSET_PATH,
-      startLocale: LanguageManager.instance.enLocale,
+      startLocale: LanguageManager.instance.trLocale,
       child: MultiProvider(providers: [
         ChangeNotifierProvider(
           create: (context) => UserProvider(),

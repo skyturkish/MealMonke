@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
+import 'package:shopping/core/init/translations/locale_keys.g.dart';
 import 'package:shopping/product/widget/textfield/custom_textfield.dart';
 import 'package:shopping/providers/user_provider.dart';
 import 'package:shopping/view/_product/_widgets/card/region_food.dart';
@@ -46,7 +48,7 @@ class HomeViewState extends State<HomeView> {
           title: Row(
             children: [
               Text(
-                "Good Morning $userName!",
+                "${LocaleKeys.goodMorning.tr()} $userName!",
                 style: TextStylesConstants.homePageMediumTitle(context: context),
               ),
               const Spacer(),

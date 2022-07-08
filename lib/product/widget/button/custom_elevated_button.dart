@@ -7,18 +7,22 @@ class CustomElevatedButton extends StatelessWidget {
     required this.onPressed,
     required this.primary,
     required this.child,
+    this.height = 0.069,
+    this.width = 0.9,
   }) : super(key: key);
   final VoidCallback onPressed;
   final Color primary;
   final Widget child;
+  final double height;
+  final double width;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         primary: primary,
         minimumSize: Size(
-          context.dynamicWidth(0.9),
-          context.dynamicHeight(0.069),
+          context.dynamicWidth(width),
+          context.dynamicHeight(height),
         ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
