@@ -66,8 +66,9 @@ class ResetPasswordTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        context.router.push(
-          const ResetPasswordRoute(),
+        Navigator.pushNamed(
+          context,
+          NavigationConstants.RESET_PASSWORD,
         );
       },
       child: Text(LocaleKeys.forgotYourPassword.tr(), style: TextStylesConstants.sideTextStyle(context: context)),
@@ -151,8 +152,10 @@ class BottomText extends StatelessWidget {
             style: TextStylesConstants.buttonMediumTextStyle(context: context),
             text: LocaleKeys.signUp.tr(),
             recognizer: TapGestureRecognizer()
-              ..onTap = () => context.router.push(
-                    const RegisterRoute(),
+              ..onTap = () => Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    NavigationConstants.REGISTER,
+                    (route) => false,
                   ),
           )
         ],

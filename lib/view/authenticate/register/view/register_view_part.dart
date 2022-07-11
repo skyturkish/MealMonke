@@ -147,8 +147,9 @@ class BottomText extends StatelessWidget {
             style: TextStylesConstants.buttonMediumTextStyle(context: context),
             text: LocaleKeys.login.tr(),
             recognizer: TapGestureRecognizer()
-              ..onTap = () => context.router.push(
-                    const LoginRoute(),
+              ..onTap = () => Navigator.pushNamed(
+                    context,
+                    NavigationConstants.LOGIN,
                   ),
           )
         ],

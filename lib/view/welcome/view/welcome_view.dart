@@ -1,12 +1,11 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
+import 'package:shopping/core/constants/navigation/navigation_constants.dart';
 import 'package:shopping/core/constants/textstyle/text_styles.dart';
 import 'package:shopping/core/extension/context_extension.dart';
 import 'package:shopping/core/extension/string_extension.dart';
 import 'package:shopping/core/init/translations/locale_keys.g.dart';
-import 'package:shopping/product/navigator/app_router.dart';
 import 'package:shopping/product/widget/button/custom_elevated_button.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -74,8 +73,9 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomElevatedButton(
       onPressed: () {
-        context.pushRoute(
-          const LoginRoute(),
+        Navigator.pushNamed(
+          context,
+          NavigationConstants.LOGIN,
         );
       },
       primary: ColorConstants.brightOrange,
@@ -100,8 +100,9 @@ class AccountButton extends StatelessWidget {
       ),
       child: CustomElevatedButton(
         onPressed: () {
-          context.pushRoute(
-            const RegisterRoute(),
+          Navigator.pushNamed(
+            context,
+            NavigationConstants.REGISTER,
           );
         },
         primary: Colors.white,

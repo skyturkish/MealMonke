@@ -48,4 +48,5 @@ abstract class LocaleKeys {
   static const save = "save";
   static const signOut = "signOut";
   static const hiThere = "hiThere";
+  static const done = "done";
 }

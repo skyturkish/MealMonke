@@ -4,20 +4,22 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/core/constants/app/app_constants.dart';
 import 'package:shopping/core/constants/color/color_constants.dart';
+import 'package:shopping/core/init/navigation/navigation_route.dart';
 import 'package:shopping/core/init/translations/language_manager.dart';
-import 'package:shopping/product/navigator/app_router.dart';
-import 'package:shopping/product/navigator/guard/auth_guard.dart';
+
 import 'package:shopping/providers/user_provider.dart';
 import 'package:shopping/view/authenticate/register/service/register_service.dart';
+import 'package:shopping/view/home/home/view/BottomAppBar.dart';
+import 'package:shopping/view/home/profile/view/profile_view.dart';
+import 'package:shopping/view/welcome/view/welcome_view.dart';
 
 void main() async {
-  await _init();
-
+  _init();
   runApp(
     EasyLocalization(
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: ApplicationConstants.TRANSLATIONS_ASSET_PATH,
-      startLocale: LanguageManager.instance.trLocale,
+      startLocale: LanguageManager.instance.enLocale,
       child: MultiProvider(providers: [
         ChangeNotifierProvider(
           create: (context) => UserProvider(),
@@ -29,6 +31,7 @@ void main() async {
 
 Future<void> _init() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await EasyLocalization.ensureInitialized();
 }
 
@@ -41,24 +44,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final RegisterService _registerService = RegisterService();
 
-  late final AppRouter appRouter;
-
-  bool isLoading = false;
-
   @override
   void initState() {
     super.initState();
     _updateAppbar();
-    getUser();
-  }
-
-  Future<void> getUser() async {
-    await _registerService.getUserData(context);
-    appRouter = AppRouter(
-      authGuard: AuthGuard(context: context),
-    );
-    isLoading = true;
-    setState(() {});
+    _registerService.getUserData(context);
   }
 
   void _updateAppbar() {
@@ -67,29 +57,29 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return isLoading == false
-        ? Container(
-            color: Colors.red,
-          )
-        : MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData.light().copyWith(
-              scaffoldBackgroundColor: ColorConstants.white,
-              appBarTheme: AppBarTheme(
-                systemOverlayStyle: const SystemUiOverlayStyle().copyWith(
-                    statusBarColor: Colors.transparent,
-                    systemNavigationBarColor: Colors.red,
-                    systemNavigationBarDividerColor: Colors.red),
-                elevation: 0,
-                color: ColorConstants.white,
-              ),
-            ),
-            routerDelegate: appRouter.delegate(),
-            routeInformationParser: appRouter.defaultRouteParser(),
-            title: ApplicationConstants.APPLICATION_TITLE,
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-          );
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      debugShowCheckedModeBanner: false,
+      title: 'Amazon Clone',
+      theme: ThemeData.light().copyWith(
+        scaffoldBackgroundColor: ColorConstants.white,
+        appBarTheme: AppBarTheme(
+          systemOverlayStyle: const SystemUiOverlayStyle().copyWith(
+              statusBarColor: Colors.transparent,
+              systemNavigationBarColor: Colors.red,
+              systemNavigationBarDividerColor: Colors.red),
+          elevation: 0,
+          color: ColorConstants.white,
+        ),
+      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? Provider.of<UserProvider>(context).user.type == 'user'
+              ? const BottomAppBarView()
+              : const ProfileView()
+          : const WelcomeView(),
+    );
   }
 }

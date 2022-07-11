@@ -82,6 +82,7 @@ class RegisterService extends IRegisterService {
         );
         final UserProvider userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userRes.body);
+        //FlutterNativeSplash.remove();
       }
     } catch (_) {}
   }

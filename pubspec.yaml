@@ -17,10 +17,10 @@ dependencies:
   # Cache
   shared_preferences: ^2.0.15
 
-  auto_route:
-    ^4.0.1
+  auto_route: ^4.0.1
 
-    # ui utilities
+  # ui utilities
+  flutter_onboard: ^2.0.0
   flutter_native_splash: ^2.2.3+1
   auto_size_text: ^3.0.0
   badges: ^2.0.3
